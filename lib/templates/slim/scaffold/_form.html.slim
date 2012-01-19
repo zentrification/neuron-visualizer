@@ -1,9 +1,14 @@
-= simple_form_for(@<%= singular_table_name %>) do |f|
+= simple_form_for @<%= singular_table_name %>, :wrapper => :stacked do |f|
   = f.error_notification
 
   .inputs
   <%- attributes.each do |attribute| -%>
-    = f.<%= attribute.reference? ? :association : :input %> :<%= attribute.name %>
+    <%- if attribute.reference? -%>
+      = f.association :<%= attribute.name %>, \
+        :label_method => lambda { |attribute| attribute.label }
+    <%- else %>
+      = f.input :<%= attribute.name %>
+    <%- end -%>
   <%- end -%>
 
   .actions

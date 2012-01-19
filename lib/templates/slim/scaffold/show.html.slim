@@ -1,0 +1,20 @@
+p#notice = notice
+
+table.bordered-table
+  thead
+    tr
+      th Column
+      th Value
+  tbody
+<% for attribute in attributes -%>
+    tr
+      td <%= attribute.human_name %>:
+  <%- if attribute.reference? -%>
+      td= @<%= singular_table_name %>.<%= attribute.name %>.label
+  <%- else -%>
+      td= @<%= singular_table_name %>.<%= attribute.name %>
+  <%- end -%>
+<% end -%>
+
+.actions
+  = link_to 'Edit', edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), :class => 'btn primary'
