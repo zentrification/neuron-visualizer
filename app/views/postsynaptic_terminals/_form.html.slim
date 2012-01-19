@@ -1,10 +1,13 @@
-= simple_form_for @postsynaptic_terminal, :wrapper => :inline do |f|
+= simple_form_for @postsynaptic_terminal, :wrapper => :stacked do |f|
   = f.error_notification
 
   .inputs
-    = f.input :label
-    = f.input :notes
-    = f.association :neuron
+
+      = f.input :label
+
+      = f.input :notes
+      = f.association :neuron, \
+        :label_method => lambda { |attribute| attribute.label }
 
   .actions
     = f.button :submit, :class => 'primary'

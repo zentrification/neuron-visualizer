@@ -1,4 +1,4 @@
-h1 Listing <%= plural_table_name %>
+h1 Listing <%= plural_table_name.humanize %>
 
 = link_to 'New <%= human_name %>', new_<%= singular_table_name %>_path, :class => 'btn primary pull-right'
 

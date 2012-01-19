@@ -1,15 +1,20 @@
 p#notice = notice
 
-p
-  b Label:
-  = @postsynaptic_terminal.label
-p
-  b Notes:
-  = @postsynaptic_terminal.notes
-p
-  b Neuron:
-  = @postsynaptic_terminal.neuron
+table.bordered-table
+  thead
+    tr
+      th Column
+      th Value
+  tbody
+    tr
+      td Label:
+      td= @postsynaptic_terminal.label
+    tr
+      td Notes:
+      td= @postsynaptic_terminal.notes
+    tr
+      td Neuron:
+      td= @postsynaptic_terminal.neuron.label
 
-= link_to 'Edit', edit_postsynaptic_terminal_path(@postsynaptic_terminal)
-'|
-= link_to 'Back', postsynaptic_terminals_path
+.actions
+  = link_to 'Edit', edit_postsynaptic_terminal_path(@postsynaptic_terminal), :class => 'btn primary'

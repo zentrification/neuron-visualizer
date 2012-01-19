@@ -1,9 +1,14 @@
 p#notice = notice
 
-p
-  b Label:
-  = @neuron.label
+table.bordered-table
+  thead
+    tr
+      th Column
+      th Value
+  tbody
+    tr
+      td Label:
+      td= @neuron.label
 
-= link_to 'Edit', edit_neuron_path(@neuron)
-'|
-= link_to 'Back', neurons_path
+.actions
+  = link_to 'Edit', edit_neuron_path(@neuron), :class => 'btn primary'

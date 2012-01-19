@@ -1,23 +1,22 @@
-h1 Listing presynaptic_terminals
+h1 Listing Presynaptic terminals
+
+= link_to 'New Presynaptic terminal', new_presynaptic_terminal_path, :class => 'btn primary pull-right'
 
 table
-  tr
-    th Label
-    th Notes
-    th Neuron
-    th
-    th
-    th
-
-  - @presynaptic_terminals.each do |presynaptic_terminal|
+  thead
     tr
-      td= presynaptic_terminal.label
-      td= presynaptic_terminal.notes
-      td= presynaptic_terminal.neuron
-      td= link_to 'Show', presynaptic_terminal
-      td= link_to 'Edit', edit_presynaptic_terminal_path(presynaptic_terminal)
-      td= link_to 'Destroy', presynaptic_terminal, :confirm => 'Are you sure?', :method => :delete
+      th Label
+      th Notes
+      th Neuron
+      th
+      th
+      th
 
-br
-
-= link_to 'New Presynaptic terminal', new_presynaptic_terminal_path
+  tbody
+    - @presynaptic_terminals.each do |presynaptic_terminal|
+      tr
+        td= link_to presynaptic_terminal.label, presynaptic_terminal
+        td= presynaptic_terminal.notes
+        td= link_to presynaptic_terminal.neuron.label, neuron_path(presynaptic_terminal.neuron)
+        td= link_to 'Edit', edit_presynaptic_terminal_path(presynaptic_terminal)
+        td= link_to 'Delete', presynaptic_terminal, :confirm => 'Are you sure?', :method => :delete

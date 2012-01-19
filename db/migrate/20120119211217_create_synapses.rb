@@ -6,12 +6,12 @@ class CreateSynapses < ActiveRecord::Migration
       t.float :x
       t.float :y
       t.float :z
-      t.references :presynaptic_terminal
       t.references :postsynaptic_terminal
+      t.references :presynaptic_terminal
 
       t.timestamps
     end
-    add_index :synapses, :presynaptic_terminal_id
     add_index :synapses, :postsynaptic_terminal_id
+    add_index :synapses, :presynaptic_terminal_id
   end
 end

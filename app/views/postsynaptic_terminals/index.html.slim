@@ -1,23 +1,22 @@
-h1 Listing postsynaptic_terminals
+h1 Listing Postsynaptic terminals
+
+= link_to 'New Postsynaptic terminal', new_postsynaptic_terminal_path, :class => 'btn primary pull-right'
 
 table
-  tr
-    th Label
-    th Notes
-    th Neuron
-    th
-    th
-    th
-
-  - @postsynaptic_terminals.each do |postsynaptic_terminal|
+  thead
     tr
-      td= postsynaptic_terminal.label
-      td= postsynaptic_terminal.notes
-      td= postsynaptic_terminal.neuron
-      td= link_to 'Show', postsynaptic_terminal
-      td= link_to 'Edit', edit_postsynaptic_terminal_path(postsynaptic_terminal)
-      td= link_to 'Destroy', postsynaptic_terminal, :confirm => 'Are you sure?', :method => :delete
+      th Label
+      th Notes
+      th Neuron
+      th
+      th
+      th
 
-br
-
-= link_to 'New Postsynaptic terminal', new_postsynaptic_terminal_path
+  tbody
+    - @postsynaptic_terminals.each do |postsynaptic_terminal|
+      tr
+        td= link_to postsynaptic_terminal.label, postsynaptic_terminal
+        td= postsynaptic_terminal.notes
+        td= link_to postsynaptic_terminal.neuron.label, neuron_path(postsynaptic_terminal.neuron)
+        td= link_to 'Edit', edit_postsynaptic_terminal_path(postsynaptic_terminal)
+        td= link_to 'Delete', postsynaptic_terminal, :confirm => 'Are you sure?', :method => :delete

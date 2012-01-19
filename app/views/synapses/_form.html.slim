@@ -1,14 +1,21 @@
-= simple_form_for @synapse, :wrapper => :inline do |f|
+= simple_form_for @synapse, :wrapper => :stacked do |f|
   = f.error_notification
 
   .inputs
-    = f.input :label
-    = f.input :notes
-    = f.input :x
-    = f.input :y
-    = f.input :z
-    = f.association :presynaptic_terminal
-    = f.association :postsynaptic_terminal
+
+      = f.input :label
+
+      = f.input :notes
+
+      = f.input :x
+
+      = f.input :y
+
+      = f.input :z
+      = f.association :postsynaptic_terminal, \
+        :label_method => lambda { |attribute| attribute.label }
+      = f.association :presynaptic_terminal, \
+        :label_method => lambda { |attribute| attribute.label }
 
   .actions
     = f.button :submit, :class => 'primary'

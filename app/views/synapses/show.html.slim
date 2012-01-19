@@ -1,27 +1,32 @@
 p#notice = notice
 
-p
-  b Label:
-  = @synapse.label
-p
-  b Notes:
-  = @synapse.notes
-p
-  b X:
-  = @synapse.x
-p
-  b Y:
-  = @synapse.y
-p
-  b Z:
-  = @synapse.z
-p
-  b Presynaptic terminal:
-  = @synapse.presynaptic_terminal
-p
-  b Postsynaptic terminal:
-  = @synapse.postsynaptic_terminal
+table.bordered-table
+  thead
+    tr
+      th Column
+      th Value
+  tbody
+    tr
+      td Label:
+      td= @synapse.label
+    tr
+      td Notes:
+      td= @synapse.notes
+    tr
+      td X:
+      td= @synapse.x
+    tr
+      td Y:
+      td= @synapse.y
+    tr
+      td Z:
+      td= @synapse.z
+    tr
+      td Postsynaptic terminal:
+      td= @synapse.postsynaptic_terminal.label
+    tr
+      td Presynaptic terminal:
+      td= @synapse.presynaptic_terminal.label
 
-= link_to 'Edit', edit_synapse_path(@synapse)
-'|
-= link_to 'Back', synapses_path
+.actions
+  = link_to 'Edit', edit_synapse_path(@synapse), :class => 'btn primary'

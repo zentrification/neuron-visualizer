@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120119040701) do
+ActiveRecord::Schema.define(:version => 20120119214307) do
 
   create_table "neurons", :force => true do |t|
     t.string   "label"
@@ -45,8 +45,8 @@ ActiveRecord::Schema.define(:version => 20120119040701) do
     t.float    "x"
     t.float    "y"
     t.float    "z"
-    t.integer  "presynaptic_terminal_id"
     t.integer  "postsynaptic_terminal_id"
+    t.integer  "presynaptic_terminal_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,31 +1,30 @@
-h1 Listing synapses
+h1 Listing Synapses
+
+= link_to 'New Synapse', new_synapse_path, :class => 'btn primary pull-right'
 
 table
-  tr
-    th Label
-    th Notes
-    th X
-    th Y
-    th Z
-    th Presynaptic terminal
-    th Postsynaptic terminal
-    th
-    th
-    th
-
-  - @synapses.each do |synapse|
+  thead
     tr
-      td= synapse.label
-      td= synapse.notes
-      td= synapse.x
-      td= synapse.y
-      td= synapse.z
-      td= synapse.presynaptic_terminal
-      td= synapse.postsynaptic_terminal
-      td= link_to 'Show', synapse
-      td= link_to 'Edit', edit_synapse_path(synapse)
-      td= link_to 'Destroy', synapse, :confirm => 'Are you sure?', :method => :delete
+      th Label
+      th Notes
+      th X
+      th Y
+      th Z
+      th Postsynaptic terminal
+      th Presynaptic terminal
+      th
+      th
+      th
 
-br
-
-= link_to 'New Synapse', new_synapse_path
+  tbody
+    - @synapses.each do |synapse|
+      tr
+        td= link_to synapse.label, synapse
+        td= synapse.notes
+        td= synapse.x
+        td= synapse.y
+        td= synapse.z
+        td= link_to synapse.postsynaptic_terminal.label, postsynaptic_terminal_path(synapse.postsynaptic_terminal)
+        td= link_to synapse.presynaptic_terminal.label, presynaptic_terminal_path(synapse.presynaptic_terminal)
+        td= link_to 'Edit', edit_synapse_path(synapse)
+        td= link_to 'Delete', synapse, :confirm => 'Are you sure?', :method => :delete

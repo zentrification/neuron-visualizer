@@ -1,11 +1,13 @@
-= simple_form_for @presynaptic_terminal, :wrapper => :inline do |f|
+= simple_form_for @presynaptic_terminal, :wrapper => :stacked do |f|
   = f.error_notification
 
   .inputs
-    = f.association :neuron, \
-      :label_method => lambda { |neuron| neuron.label }
-    = f.input :label
-    = f.input :notes
+
+      = f.input :label
+
+      = f.input :notes
+      = f.association :neuron, \
+        :label_method => lambda { |attribute| attribute.label }
 
   .actions
     = f.button :submit, :class => 'primary'

@@ -1,9 +1,11 @@
 NeuronRedux::Application.routes.draw do
 
-  resources :neurons
-  resources :postsynaptic_terminals
   resources :presynaptic_terminals
+
+  resources :neurons
+
   resources :synapses
+  resources :postsynaptic_terminals  
   root :to => 'synapses#index'
 
   # first created -> highest priority.

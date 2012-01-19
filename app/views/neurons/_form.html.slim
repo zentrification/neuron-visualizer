@@ -1,8 +1,9 @@
-= simple_form_for @neuron, :wrapper => :inline do |f|
+= simple_form_for @neuron, :wrapper => :stacked do |f|
   = f.error_notification
 
   .inputs
-    = f.input :label
+
+      = f.input :label
 
   .actions
     = f.button :submit, :class => 'primary'

@@ -1,19 +1,18 @@
 h1 Listing neurons
 
+= link_to 'New Neuron', new_neuron_path, :class => 'btn primary pull-right'
+
 table
-  tr
-    th Label
-    th
-    th
-    th
-
-  - @neurons.each do |neuron|
+  thead
     tr
-      td= neuron.label
-      td= link_to 'Show', neuron
-      td= link_to 'Edit', edit_neuron_path(neuron)
-      td= link_to 'Destroy', neuron, :confirm => 'Are you sure?', :method => :delete
+      th Label
+      th
+      th
+      th
 
-br
-
-= link_to 'New Neuron', new_neuron_path
+  tbody
+    - @neurons.each do |neuron|
+      tr
+        td= link_to neuron.label, neuron
+        td= link_to 'Edit', edit_neuron_path(neuron)
+        td= link_to 'Delete', neuron, :confirm => 'Are you sure?', :method => :delete

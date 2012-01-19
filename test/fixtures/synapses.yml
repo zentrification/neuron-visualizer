@@ -6,8 +6,8 @@ one:
   x: 1.5
   y: 1.5
   z: 1.5
-  presynaptic_terminal: 
   postsynaptic_terminal: 
+  presynaptic_terminal: 
 
 two:
   label: MyString
@@ -15,5 +15,5 @@ two:
   x: 1.5
   y: 1.5
   z: 1.5
-  presynaptic_terminal: 
   postsynaptic_terminal: 
+  presynaptic_terminal: 
