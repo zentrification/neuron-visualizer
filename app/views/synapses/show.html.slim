@@ -1,0 +1,27 @@
+p#notice = notice
+
+p
+  b Label:
+  = @synapse.label
+p
+  b Notes:
+  = @synapse.notes
+p
+  b X:
+  = @synapse.x
+p
+  b Y:
+  = @synapse.y
+p
+  b Z:
+  = @synapse.z
+p
+  b Presynaptic terminal:
+  = @synapse.presynaptic_terminal
+p
+  b Postsynaptic terminal:
+  = @synapse.postsynaptic_terminal
+
+= link_to 'Edit', edit_synapse_path(@synapse)
+'|
+= link_to 'Back', synapses_path

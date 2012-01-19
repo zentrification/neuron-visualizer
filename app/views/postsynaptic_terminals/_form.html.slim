@@ -1,0 +1,10 @@
+= simple_form_for @postsynaptic_terminal, :wrapper => :inline do |f|
+  = f.error_notification
+
+  .inputs
+    = f.input :label
+    = f.input :notes
+    = f.association :neuron
+
+  .actions
+    = f.button :submit, :class => 'primary'

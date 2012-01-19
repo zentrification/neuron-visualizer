@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  b Label:
+  = @presynaptic_terminal.label
+p
+  b Notes:
+  = @presynaptic_terminal.notes
+p
+  b Neuron:
+  = @presynaptic_terminal.neuron
+
+= link_to 'Edit', edit_presynaptic_terminal_path(@presynaptic_terminal)
+'|
+= link_to 'Back', presynaptic_terminals_path

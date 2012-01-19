@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  label: MyString
+  notes: MyText
+  x: 1.5
+  y: 1.5
+  z: 1.5
+  presynaptic_terminal: 
+  postsynaptic_terminal: 
+
+two:
+  label: MyString
+  notes: MyText
+  x: 1.5
+  y: 1.5
+  z: 1.5
+  presynaptic_terminal: 
+  postsynaptic_terminal: 

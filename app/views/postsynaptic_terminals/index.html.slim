@@ -1,0 +1,23 @@
+h1 Listing postsynaptic_terminals
+
+table
+  tr
+    th Label
+    th Notes
+    th Neuron
+    th
+    th
+    th
+
+  - @postsynaptic_terminals.each do |postsynaptic_terminal|
+    tr
+      td= postsynaptic_terminal.label
+      td= postsynaptic_terminal.notes
+      td= postsynaptic_terminal.neuron
+      td= link_to 'Show', postsynaptic_terminal
+      td= link_to 'Edit', edit_postsynaptic_terminal_path(postsynaptic_terminal)
+      td= link_to 'Destroy', postsynaptic_terminal, :confirm => 'Are you sure?', :method => :delete
+
+br
+
+= link_to 'New Postsynaptic terminal', new_postsynaptic_terminal_path

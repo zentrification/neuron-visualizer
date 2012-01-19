@@ -1,0 +1,9 @@
+p#notice = notice
+
+p
+  b Label:
+  = @neuron.label
+
+= link_to 'Edit', edit_neuron_path(@neuron)
+'|
+= link_to 'Back', neurons_path

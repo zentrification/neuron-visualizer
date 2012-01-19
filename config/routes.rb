@@ -1,5 +1,11 @@
 NeuronRedux::Application.routes.draw do
-  # The priority is based upon order of creation:
+
+  resources :neurons
+  resources :postsynaptic_terminals
+  resources :presynaptic_terminals
+  resources :synapses
+  root :to => 'synapses#index'
+
   # first created -> highest priority.
 
   # Sample of regular route:

@@ -1,0 +1,27 @@
+doctype
+html
+  head
+    title NeuronRedux
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  body style="padding-top: 60px"
+    .topbar
+      .topbar-inner
+        .container-fluid
+          h3= link_to "NeuronRedux", "/"
+          ul.nav
+            li= link_to 'Neurons', neurons_path
+            li= link_to 'PreSynaptic Terminals', presynaptic_terminals_path
+            li= link_to 'PostSynaptic Terminals', postsynaptic_terminals_path
+            li= link_to 'Synapses', synapses_path
+    .container-fluid
+      .sidebar
+        .well
+          h5 Sidebar
+          ul
+            li= link_to "Link1", "/path1"
+            li= link_to "Link2", "/path2"
+            li= link_to "Link3", "/path3"
+      .content
+        = yield

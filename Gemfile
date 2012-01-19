@@ -7,6 +7,15 @@ gem 'rails', '3.1.3'
 
 gem 'sqlite3'
 
+gem 'inherited_resources'
+gem 'responders'
+
+gem 'chosen_rails'
+gem 'haml'
+gem 'jquery-rails'
+gem 'simple_form', :git => 'git://github.com/plataformatec/simple_form.git'
+gem 'slim-rails'
+gem 'twitter-bootstrap-rails', :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
 
 # Gems used only for assets and not required
 # in production environments by default.
