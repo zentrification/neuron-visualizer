@@ -2,11 +2,11 @@ h1 Listing Postsynaptic terminals
 
 = link_to 'New Postsynaptic terminal', new_postsynaptic_terminal_path, :class => 'btn primary pull-right'
 
-table
+table.condensed-table
   thead
     tr
-      th Label
       th Notes
+      th Label
       th Neuron
       th
       th
@@ -15,8 +15,12 @@ table
   tbody
     - @postsynaptic_terminals.each do |postsynaptic_terminal|
       tr
+        - if postsynaptic_terminal.notes
+          td= link_to '#', { :rel => 'twipsy', :title => postsynaptic_terminal.notes } do
+              span.label.notice note
+        - else
+          td
         td= link_to postsynaptic_terminal.label, postsynaptic_terminal
-        td= postsynaptic_terminal.notes
         td= link_to postsynaptic_terminal.neuron.label, neuron_path(postsynaptic_terminal.neuron)
         td= link_to 'Edit', edit_postsynaptic_terminal_path(postsynaptic_terminal)
         td= link_to 'Delete', postsynaptic_terminal, :confirm => 'Are you sure?', :method => :delete

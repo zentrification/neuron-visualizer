@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(:version => 20120119214307) do
 
   create_table "neurons", :force => true do |t|
     t.string   "label"
+    t.text     "note"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

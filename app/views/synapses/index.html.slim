@@ -2,11 +2,11 @@ h1 Listing Synapses
 
 = link_to 'New Synapse', new_synapse_path, :class => 'btn primary pull-right'
 
-table
+table.condensed-table
   thead
     tr
-      th Label
       th Notes
+      th Label
       th X
       th Y
       th Z
@@ -19,8 +19,12 @@ table
   tbody
     - @synapses.each do |synapse|
       tr
+        - if synapse.notes
+          td= link_to '#', { :rel => 'twipsy', :title => synapse.notes } do
+              span.label.notice note
+        - else
+          td
         td= link_to synapse.label, synapse
-        td= synapse.notes
         td= synapse.x
         td= synapse.y
         td= synapse.z

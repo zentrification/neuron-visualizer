@@ -15,10 +15,10 @@ Synapse.delete_all
 neurons = Neuron.all
 
 (1..5).to_a.each do |x|
-  a = PresynapticTerminal.new :label => 'presynaptic terminal' + x.to_s
+  a = PresynapticTerminal.new :label => 'axon' + x.to_s
   a.neuron = neurons.sample
   a.save
-  a = PostsynapticTerminal.new :label => 'postsynaptic terminal' + x.to_s
+  a = PostsynapticTerminal.new :label => 'dendrite' + x.to_s
   a.neuron = neurons.sample
   a.save
 end
