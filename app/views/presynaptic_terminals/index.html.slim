@@ -5,21 +5,21 @@ h1 Listing Presynaptic terminals
 table.condensed-table
   thead
     tr
-      th Notes
+      th ID
       th Label
-      th Neuron
+      th Notes
       th
       th
 
   tbody
     - @presynaptic_terminals.each do |presynaptic_terminal|
       tr
+        td= presynaptic_terminal.id
+        td= link_to presynaptic_terminal.label, presynaptic_terminal
         - if presynaptic_terminal.notes
           td= link_to '#', { :rel => 'twipsy', :title => presynaptic_terminal.notes } do
               span.label.notice note
         - else
           td
-        td= link_to presynaptic_terminal.label, presynaptic_terminal
-        td= link_to presynaptic_terminal.neuron.label, neuron_path(presynaptic_terminal.neuron)
         td= link_to 'Edit', edit_presynaptic_terminal_path(presynaptic_terminal)
         td= link_to 'Delete', presynaptic_terminal, :confirm => 'Are you sure?', :method => :delete

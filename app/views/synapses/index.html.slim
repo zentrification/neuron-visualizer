@@ -5,8 +5,9 @@ h1 Listing Synapses
 table.condensed-table
   thead
     tr
-      th Notes
+      th ID
       th Label
+      th Notes
       th X
       th Y
       th Z
@@ -18,12 +19,13 @@ table.condensed-table
   tbody
     - @synapses.each do |synapse|
       tr
+        td= synapse.id
+        td= link_to synapse.label, synapse
         - if synapse.notes
           td= link_to '#', { :rel => 'twipsy', :title => synapse.notes } do
               span.label.notice note
         - else
           td
-        td= link_to synapse.label, synapse
         td= synapse.x
         td= synapse.y
         td= synapse.z

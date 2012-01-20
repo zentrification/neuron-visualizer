@@ -5,6 +5,7 @@ h1 Listing neurons
 table.condensed-table
   thead
     tr
+      th ID
       th Label
       th
       th
@@ -12,6 +13,7 @@ table.condensed-table
   tbody
     - @neurons.each do |neuron|
       tr
+        td= neuron.id
         td= link_to neuron.label, neuron
         td= link_to 'Edit', edit_neuron_path(neuron)
         td= link_to 'Delete', neuron, :confirm => 'Are you sure?', :method => :delete
