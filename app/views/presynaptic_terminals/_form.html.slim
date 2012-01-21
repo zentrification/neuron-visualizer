@@ -1,8 +1,10 @@
 = simple_form_for @presynaptic_terminal, :wrapper => :stacked do |f|
   .inputs
-      = f.input :label
-      = f.input :notes
       = f.association :neuron, \
         :label_method => lambda { |attribute| attribute.label }
+      = f.association :presynaptic_terminal_type, \
+        :label_method => lambda { |attribute| attribute.label }
+      = f.input :label
+      = f.input :notes
   .actions
     = f.button :submit, :class => 'primary'

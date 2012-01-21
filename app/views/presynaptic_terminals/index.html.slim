@@ -7,6 +7,7 @@ table.condensed-table.sortable
     tr
       th ID
       th Label
+      th Type
       th Notes
       th
       th
@@ -16,10 +17,7 @@ table.condensed-table.sortable
       tr
         td= presynaptic_terminal.id
         td= link_to presynaptic_terminal.label, presynaptic_terminal
-        - if presynaptic_terminal.notes
-          td= link_to '#', { :rel => 'twipsy', :title => presynaptic_terminal.notes } do
-              span.label.notice note
-        - else
-          td
+        td= presynaptic_terminal.presynaptic_terminal_type.try :label
+        td= notes_helper(presynaptic_terminal)
         td= link_to 'Edit', edit_presynaptic_terminal_path(presynaptic_terminal)
         td= link_to 'Delete', presynaptic_terminal, :confirm => 'Are you sure?', :method => :delete

@@ -8,8 +8,12 @@
 
 Neuron.delete_all
 PresynapticTerminal.delete_all
+PresynapticTerminalType.delete_all
 PostsynapticTerminal.delete_all
 Synapse.delete_all
+
+PresynapticTerminalType.create :label => 'Terminal'
+PresynapticTerminalType.create :label => 'EnPassant'
 
 (1..10).to_a.each { |x| Neuron.create :label => 'neuron' + x.to_s }
 neurons = Neuron.all
@@ -18,6 +22,7 @@ neurons = Neuron.all
   a = PresynapticTerminal.new :label => 'axon' + x.to_s
   a.neuron = neurons.sample
   a.notes = 'hihihi' if rand(2) == 0
+  a.presynaptic_terminal_type = PresynapticTerminalType.all.sample
   a.save
   a = PostsynapticTerminal.new :label => 'dendrite' + x.to_s
   a.neuron = neurons.sample
