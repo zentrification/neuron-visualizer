@@ -11,10 +11,10 @@ PresynapticTerminal.delete_all
 PostsynapticTerminal.delete_all
 Synapse.delete_all
 
-(1..3).to_a.each { |x| Neuron.create :label => 'neuron' + x.to_s }
+(1..10).to_a.each { |x| Neuron.create :label => 'neuron' + x.to_s }
 neurons = Neuron.all
 
-(1..5).to_a.each do |x|
+(1..50).to_a.each do |x|
   a = PresynapticTerminal.new :label => 'axon' + x.to_s
   a.neuron = neurons.sample
   a.notes = 'hihihi' if rand(2) == 0
@@ -27,7 +27,7 @@ end
 post = PostsynapticTerminal.all
 pre = PresynapticTerminal.all
 
-(1..10).to_a.each do |x|
+(1..300).to_a.each do |x|
   a = Synapse.new :label => 'synapse' + x.to_s
   a.x = rand(1000) + rand(1000)
   a.y = rand(1000) + rand(1000)

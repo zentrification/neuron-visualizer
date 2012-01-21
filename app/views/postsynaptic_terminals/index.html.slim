@@ -1,6 +1,11 @@
 h1 Listing Postsynaptic terminals
 
-= link_to 'New Postsynaptic terminal', new_postsynaptic_terminal_path, :class => 'btn primary pull-right'
+= link_to 'New Postsynaptic terminal', new_postsynaptic_terminal_path, :class => 'btn primary pull-right', :remote => true
+
+.ajax.postsynaptic_terminal
+  .title
+    h2
+  .content
 
 table.condensed-table.sortable
   thead
@@ -15,11 +20,11 @@ table.condensed-table.sortable
     - @postsynaptic_terminals.each do |postsynaptic_terminal|
       tr
         td= postsynaptic_terminal.id
-        td= link_to postsynaptic_terminal.label, postsynaptic_terminal
+        td= link_to postsynaptic_terminal.label, postsynaptic_terminal, :remote => true
         - if postsynaptic_terminal.notes
           td= link_to '#', { :rel => 'twipsy', :title => postsynaptic_terminal.notes } do
               span.label.notice note
         - else
           td
-        td= link_to 'Edit', edit_postsynaptic_terminal_path(postsynaptic_terminal)
+        td= link_to 'Edit', edit_postsynaptic_terminal_path(postsynaptic_terminal), :remote => true
         td= link_to 'Delete', postsynaptic_terminal, :confirm => 'Are you sure?', :method => :delete

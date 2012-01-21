@@ -1,13 +1,8 @@
-= simple_form_for @postsynaptic_terminal, :wrapper => :stacked do |f|
-  = f.error_notification
-
+= simple_form_for @postsynaptic_terminal, :wrapper => :stacked, :remote => true do |f|
   .inputs
-
-      = f.input :label
-
-      = f.input :notes
-      = f.association :neuron, \
-        :label_method => lambda { |attribute| attribute.label }
-
+    = f.association :neuron, \
+      :label_method => lambda { |attribute| attribute.label }
+    = f.input :label
+    = f.input :notes
   .actions
     = f.button :submit, :class => 'primary'

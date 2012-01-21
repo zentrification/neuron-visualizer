@@ -1,3 +1,13 @@
-h2 New Synapse
-
-== render 'form'
+.row
+  .span8
+    h2 New Synapse
+    == render 'form'
+  .span8
+    .presynaptic_terminal.ajax-title
+      h2 New Presynaptic Terminal
+    .presynaptic_terminal.ajax-form
+      == render 'presynaptic_terminals/form'
+    .postsynaptic_terminal.ajax-title
+      h2 New Postsynaptic Terminal
+    .postsynaptic_terminal.ajax-form
+      == render 'postsynaptic_terminals/form'
