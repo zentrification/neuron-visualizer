@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120121030839) do
+ActiveRecord::Schema.define(:version => 20120121033823) do
 
   create_table "neurons", :force => true do |t|
     t.string   "label"
@@ -20,15 +20,21 @@ ActiveRecord::Schema.define(:version => 20120121030839) do
     t.datetime "updated_at"
   end
 
+  create_table "postsynaptic_terminal_types", :force => true do |t|
+    t.string "label"
+  end
+
   create_table "postsynaptic_terminals", :force => true do |t|
     t.string   "label"
     t.text     "notes"
     t.integer  "neuron_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "postsynaptic_terminal_type_id"
   end
 
   add_index "postsynaptic_terminals", ["neuron_id"], :name => "index_postsynaptic_terminals_on_neuron_id"
+  add_index "postsynaptic_terminals", ["postsynaptic_terminal_type_id"], :name => "index_postsynaptic_terminals_on_postsynaptic_terminal_type_id"
 
   create_table "presynaptic_terminal_types", :force => true do |t|
     t.string "label"
