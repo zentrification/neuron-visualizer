@@ -1,28 +1,27 @@
-h1 Listing Postsynaptic terminals
+- content_for :header do
+  = link_to 'New Postsynaptic terminal', new_postsynaptic_terminal_path, :class => 'btn pull-right', :remote => true
+  h1 Listing Postsynaptic terminals
 
-= link_to 'New Postsynaptic terminal', new_postsynaptic_terminal_path, :class => 'btn primary pull-right', :remote => true
-
-.ajax.postsynaptic_terminal
-  .title
-    h2
-  .content
+- content_for :ajax do
+  .postsynaptic_terminal
+    .title
+      h2
+    .content
 
 table.condensed-table.sortable
   thead
     tr
       th ID
+      th Notes
       th Label
       th Type
-      th Notes
+      th Neuron
       th
       th
 
   tbody
     - @postsynaptic_terminals.each do |postsynaptic_terminal|
-      tr
-        td= postsynaptic_terminal.id
-        td= link_to postsynaptic_terminal.label, postsynaptic_terminal, :remote => true
-        td= postsynaptic_terminal.postsynaptic_terminal_type.try :label
-        td= notes_helper(postsynaptic_terminal)
-        td= link_to 'Edit', edit_postsynaptic_terminal_path(postsynaptic_terminal), :remote => true
-        td= link_to 'Delete', postsynaptic_terminal, :confirm => 'Are you sure?', :method => :delete
+      == render postsynaptic_terminal
+
+coffee:
+  $('#header a').focus()

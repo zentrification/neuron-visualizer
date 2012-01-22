@@ -1,23 +1,18 @@
 p#notice = notice
 
-table.bordered-table
-  thead
-    tr
-      th Column
-      th Value
-  tbody
-    tr
-      td Label
-      td= @postsynaptic_terminal.label
-    tr
-      td Type
-      td= @postsynaptic_terminal.postsynaptic_terminal_type.label
-    tr
-      td Neuron
-      td= @postsynaptic_terminal.neuron.label
-    tr
-      td Notes
-      td= @postsynaptic_terminal.notes
-
-.actions
-  = link_to 'Edit', edit_postsynaptic_terminal_path(@postsynaptic_terminal), :class => 'btn primary', :remote => true
+p
+  strong Label
+  br
+  = @postsynaptic_terminal.label
+p
+  strong Type
+  br
+  = @postsynaptic_terminal.postsynaptic_terminal_type.label
+p
+  strong Neuron
+  br
+  = @postsynaptic_terminal.neuron.label
+p
+  strong Notes
+  br
+  = @postsynaptic_terminal.notes

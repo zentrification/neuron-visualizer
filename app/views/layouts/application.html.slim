@@ -1,4 +1,4 @@
-doctype
+doctype 5
 html
   head
     title NeuronRedux
@@ -6,14 +6,22 @@ html
     = javascript_include_tag "application"
     = csrf_meta_tags
   body style="padding-top: 60px"
-    .topbar
-      .topbar-inner
-        .container-fluid
-          h3= link_to "NeuronRedux", "/"
-          ul.nav
-            li= link_to 'Neurons', neurons_path
-            li= link_to 'PreSynaptic Terminals', presynaptic_terminals_path
-            li= link_to 'PostSynaptic Terminals', postsynaptic_terminals_path
-            li= link_to 'Synapses', synapses_path
-    .content
-      = yield
+    #navigation
+      .topbar
+        .topbar-inner
+          .container-fluid
+            h3= link_to "NeuronRedux", "/"
+            ul.nav
+              li= link_to 'Neurons', neurons_path
+              li= link_to 'PreSynaptic Terminals', presynaptic_terminals_path
+              li= link_to 'PostSynaptic Terminals', postsynaptic_terminals_path
+              li= link_to 'Synapses', synapses_path
+    #header
+      = yield :header
+    #ajax
+      .loader
+        img src='/assets/ajax-loader.gif'
+      = yield :ajax
+    #content
+      .wrapper
+        = yield

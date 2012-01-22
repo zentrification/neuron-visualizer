@@ -16,7 +16,7 @@ SimpleForm.setup do |config|
     b.use :hint,  :tag => :span, :class => :'help-block'
     b.use :tag => 'div', :class => 'input' do |input|
       input.use :input
-      input.use :error, :tag => :span, :class => :'help-inline'
+      input.use :error, :tag => :p, :class => :'help-inline'
     end
   end
 

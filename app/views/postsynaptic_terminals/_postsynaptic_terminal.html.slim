@@ -1,0 +1,8 @@
+tr id=('postsynaptic_terminal_' + postsynaptic_terminal.id.to_s)
+  td= postsynaptic_terminal.id
+  td= notes_helper(postsynaptic_terminal)
+  td= link_to postsynaptic_terminal.label, postsynaptic_terminal, :remote => true
+  td= postsynaptic_terminal.postsynaptic_terminal_type.try :label
+  td= postsynaptic_terminal.neuron.try :label
+  td= link_to 'Edit', edit_postsynaptic_terminal_path(postsynaptic_terminal), :remote => true
+  td= link_to 'Delete', postsynaptic_terminal, :confirm => 'Are you sure?', :method => :delete
