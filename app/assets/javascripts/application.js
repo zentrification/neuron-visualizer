@@ -6,10 +6,6 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require chosen
 //= require twitter/bootstrap
 //= require_tree .
-
-$(document).ready(function() {
-  $('table.sortable').tablesorter();
-  $('.chzn-select').chosen();
-});

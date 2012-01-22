@@ -1,8 +1,10 @@
 = simple_form_for @postsynaptic_terminal, :html => { :class => 'form-stacked' }, :wrapper => :stacked, :remote => true do |f|
   .inputs
     = f.association :neuron, \
+      :input_html => { :class => 'chzn-select', :'data-placeholder' => 'Select Neuron' }, \
       :label_method => lambda { |attribute| attribute.label }
     = f.association :postsynaptic_terminal_type, \
+      :input_html => { :class => 'chzn-select', :'data-placeholder' => 'Select Type' }, \
       :label => 'Type', \
       :label_method => lambda { |attribute| attribute.label }
     = f.input :label
