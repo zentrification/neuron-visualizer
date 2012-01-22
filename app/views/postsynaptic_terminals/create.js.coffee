@@ -5,5 +5,5 @@
   $('#postsynaptic_terminal_<%= @postsynaptic_terminal.id %>').effect 'highlight', {}, 1000
 <% else -%>
   $('#ajax .postsynaptic_terminal .content').html("<%= escape_javascript(render :partial => 'form') %>")
-  $('#postsynaptic_terminal_neuron_id').focus()
+  $('.chzn-select').chosen()
 <% end -%>

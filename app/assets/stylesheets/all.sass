@@ -8,20 +8,31 @@
 form textarea
   :height 3em
 
+a.btn:focus
+  :outline none
+  :border-color blue
+
 // override bootstrap style for stacked forms
 p.help-inline
   :margin-bottom 0
+
+.loading
+  :background-image url(/assets/ajax-loader.gif)
+
 // button above ajax also floats right
 // hide actions background/border on form on ajax call
+#ajax, #ajax .loader
+  :position fixed
+  :top 100px
+  :right 0
 #ajax
-  :clear right
-  :float right
+  // :clear right
+  // :float right
   :padding-left 30px
   :width 270px
   .loader
     :display none
-    :padding-top 30px
-    :text-align center
+    :padding 40px 130px 0
   .title
     h2
       :font-size 1.2em

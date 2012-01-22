@@ -5,7 +5,9 @@ $ ->
 $ ->
   $(".pills").pills()
 $ ->
-  $("a[rel=twipsy]").twipsy live: true
+  $("a[rel=twipsy]").twipsy
+    live: true
+    placement: 'right'
 $ ->
   $("a[rel=popover]").popover offset: 10
 $ ->
